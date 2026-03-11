@@ -1,5 +1,4 @@
 package citamedica.Modelo;
-
 public class CitaMedica {
 	private String fecha;
 	private String hora;

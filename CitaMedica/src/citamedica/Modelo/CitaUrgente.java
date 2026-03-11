@@ -1,7 +1,4 @@
 package citamedica.Modelo;
-
-
-
 public class CitaUrgente  extends CitaMedica{
 	private int nivelUrgencia;
 

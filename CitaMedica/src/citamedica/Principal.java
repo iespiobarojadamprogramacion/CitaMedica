@@ -10,6 +10,19 @@ public class Principal {
 		System.out.println("Soy Marcio Candia");
 		System.out.println("Soy Jonás");
 		System.out.println("Soy Emilio"); 
+		
+		int respuesta = 0;
+		
+		System.out.println("1. Abrir agenda"
+				+ "\n2. Cerrar");
+		
+		switch (respuesta) {
+		
+		case 1: 
+		
+		case2: break;
+		
+		}
 
 
 	}

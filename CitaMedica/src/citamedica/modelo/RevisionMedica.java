@@ -1,7 +1,4 @@
 package citamedica.modelo;
-
-
-
 public class RevisionMedica  extends CitaMedica{
 	private int duracion;
 	private TipoCita citaAnterior;

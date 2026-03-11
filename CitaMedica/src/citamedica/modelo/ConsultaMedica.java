@@ -1,7 +1,4 @@
 package citamedica.modelo;
-
-
-
 public class ConsultaMedica extends CitaMedica {
 	private int duracion;
 

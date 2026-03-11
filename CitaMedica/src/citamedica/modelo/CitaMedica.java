@@ -33,6 +33,4 @@ public class CitaMedica {
 				+ super.toString() + "]";
 	}
 	
-	
-	
 }

@@ -20,6 +20,6 @@ public class ConsultaMedica extends CitaMedica {
 		return "ConsultaMedica [duracion=" + duracion + ", toString()=" + super.toString() + "]";
 	}
 	
-	
+
 	
 }

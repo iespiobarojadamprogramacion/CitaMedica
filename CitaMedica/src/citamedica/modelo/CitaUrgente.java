@@ -20,5 +20,4 @@ public class CitaUrgente  extends CitaMedica{
 		return "CitaUrgente [nivelUrgencia=" + nivelUrgencia + ", toString()=" + super.toString() + "]";
 	}
 	
-	
 }

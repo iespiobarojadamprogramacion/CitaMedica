@@ -24,5 +24,4 @@ public class RevisionMedica  extends CitaMedica{
 		return "RevisionMedica [duracion=" + duracion + ", citaAnterior=" + citaAnterior + ", toString()="
 				+ super.toString() + "]";
 	}
-	
 }

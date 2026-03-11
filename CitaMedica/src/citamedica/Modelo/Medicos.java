@@ -29,20 +29,17 @@ public class Medicos {
 		this.numeroColegial = numeroColegial;
 	}
 
-	public EspecialidadMedica getEspecialidadMedica() {
+public EspecialidadMedica getEspecialidadMedica() {
 		return especialidadMedica;
-	}
+		}
+public void setEspecialidadMedica(EspecialidadMedica especialidadMedica) {
+	this.especialidadMedica = especialidadMedica;
+}
 
-	public void setEspecialidadMedica(EspecialidadMedica especialidadMedica) {
-		this.especialidadMedica = especialidadMedica;
-	}
-
-	@Override
-	public String toString() {
-		return "medicos [nombreCompleto=" + nombreCompleto + ", numeroColegial=" + numeroColegial
+@Override
+public String toString() {
+	return "medicos [nombreCompleto=" + nombreCompleto + ", numeroColegial=" + numeroColegial
 				+ ", especialidadMedica=" + especialidadMedica + "]";
 	
-	
-	
-}
+	}
 }

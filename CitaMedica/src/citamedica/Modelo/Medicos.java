@@ -41,7 +41,8 @@ public class Medicos {
 	public String toString() {
 		return "medicos [nombreCompleto=" + nombreCompleto + ", numeroColegial=" + numeroColegial
 				+ ", especialidadMedica=" + especialidadMedica + "]";
-	}
 	
 	
+	
+}
 }

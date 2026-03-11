@@ -1,5 +1,6 @@
 package citamedica.Modelo;
 
+
 public class Pacientes {
 	private String dni;
 	private String nombreCompleto;

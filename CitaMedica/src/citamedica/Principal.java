@@ -4,6 +4,7 @@ public class Principal {
 	
 	public static void main(String[] args) {
 
+
 		int respuesta = 0;
 		
 		System.out.println("1. Abrir agenda"
@@ -16,6 +17,12 @@ public class Principal {
 		case2: break;
 		
 		}
+
+
+
+
+		
+
 
 
 	}

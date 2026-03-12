@@ -1,14 +1,30 @@
 package citamedica.Modelo;
 
 public class CitaMedica {
+	private Medicos medicos;
+	private Pacientes pacientes;
 	private String fecha;
 	private String hora;
 	TipoCita tipoCita;
-	public CitaMedica(String fecha, String hora, TipoCita tipoCita) {
-		
+	public CitaMedica(Medicos medicos, Pacientes pacientes, String fecha, String hora, TipoCita tipoCita) {
+		super();
+		this.medicos = medicos;
+		this.pacientes = pacientes;
 		this.fecha = fecha;
 		this.hora = hora;
 		this.tipoCita = tipoCita;
+	}
+	public Medicos getMedicos() {
+		return medicos;
+	}
+	public void setMedicos(Medicos medicos) {
+		this.medicos = medicos;
+	}
+	public Pacientes getPacientes() {
+		return pacientes;
+	}
+	public void setPacientes(Pacientes pacientes) {
+		this.pacientes = pacientes;
 	}
 	public String getFecha() {
 		return fecha;
@@ -22,16 +38,11 @@ public class CitaMedica {
 	public void setHora(String hora) {
 		this.hora = hora;
 	}
-	public TipoCita getTipoCita() {
-		return tipoCita;
-	}
-	public void setTipoCita(TipoCita tipoCita) {
-		this.tipoCita = tipoCita;
-	}
 	@Override
 	public String toString() {
-		return "CitaMedica [fecha=" + fecha + ", hora=" + hora + ", tipoCita=" + tipoCita + ", toString()="
-				+ super.toString() + "]";
+		return "CitaMedica [medicos=" + medicos + ", pacientes=" + pacientes + ", fecha=" + fecha + ", hora=" + hora
+				+ ", tipoCita=" + tipoCita + "]";
 	}
+	
 	
 }

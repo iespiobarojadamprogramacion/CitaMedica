@@ -3,8 +3,9 @@ package citamedica.Modelo;
 public class ConsultaMedica extends CitaMedica {
 	private int duracion;
 
-	public ConsultaMedica(String fecha, String hora, TipoCita tipoCita, int duracion) {
-		super(fecha, hora, tipoCita);
+	public ConsultaMedica(Medicos medicos, Pacientes pacientes, String fecha, String hora, TipoCita tipoCita,
+			int duracion) {
+		super(medicos, pacientes, fecha, hora, tipoCita);
 		this.duracion = duracion;
 	}
 
@@ -20,6 +21,8 @@ public class ConsultaMedica extends CitaMedica {
 	public String toString() {
 		return "ConsultaMedica [duracion=" + duracion + ", toString()=" + super.toString() + "]";
 	}
+
+	
 	
 
 	

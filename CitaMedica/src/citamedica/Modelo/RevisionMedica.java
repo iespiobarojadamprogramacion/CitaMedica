@@ -2,8 +2,9 @@ package citamedica.Modelo;
 public class RevisionMedica  extends CitaMedica{
 	private int duracion;
 	private TipoCita citaAnterior;
-	public RevisionMedica(String fecha, String hora, TipoCita tipoCita, int duracion, TipoCita citaAnterior) {
-		super(fecha, hora, tipoCita);
+	public RevisionMedica(Medicos medicos, Pacientes pacientes, String fecha, String hora, TipoCita tipoCita,
+			int duracion, TipoCita citaAnterior) {
+		super(medicos, pacientes, fecha, hora, tipoCita);
 		this.duracion = duracion;
 		this.citaAnterior = citaAnterior;
 	}
@@ -24,4 +25,5 @@ public class RevisionMedica  extends CitaMedica{
 		return "RevisionMedica [duracion=" + duracion + ", citaAnterior=" + citaAnterior + ", toString()="
 				+ super.toString() + "]";
 	}
+	
 }

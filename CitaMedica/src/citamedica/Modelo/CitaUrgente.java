@@ -3,8 +3,9 @@ package citamedica.Modelo;
 public class CitaUrgente  extends CitaMedica{
 	private int nivelUrgencia;
 
-	public CitaUrgente(String fecha, String hora, TipoCita tipoCita, int nivelUrgencia) {
-		super(fecha, hora, tipoCita);
+	public CitaUrgente(Medicos medicos, Pacientes pacientes, String fecha, String hora, TipoCita tipoCita,
+			int nivelUrgencia) {
+		super(medicos, pacientes, fecha, hora, tipoCita);
 		this.nivelUrgencia = nivelUrgencia;
 	}
 
@@ -20,5 +21,6 @@ public class CitaUrgente  extends CitaMedica{
 	public String toString() {
 		return "CitaUrgente [nivelUrgencia=" + nivelUrgencia + ", toString()=" + super.toString() + "]";
 	}
+
 	
 }

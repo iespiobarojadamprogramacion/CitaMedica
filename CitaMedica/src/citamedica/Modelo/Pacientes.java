@@ -1,6 +1,5 @@
 package citamedica.Modelo;
 
-
 public class Pacientes {
 	private String dni;
 	private String nombreCompleto;
@@ -51,7 +50,6 @@ public class Pacientes {
 	public int getTelefono() {
 		return telefono;
 	}
-
 	public void setTelefono(int telefono) {
 		this.telefono = telefono;
 	}

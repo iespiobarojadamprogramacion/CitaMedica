@@ -52,8 +52,8 @@ public class Pacientes {
 		return telefono;
 	}
 
-	public void setTelefono(int telefono) {
-		this.telefono = telefono;
+	public void setTelefono(int nuevoTel) {
+		this.telefono = nuevoTel;
 	}
 
 	@Override

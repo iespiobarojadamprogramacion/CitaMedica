@@ -133,6 +133,5 @@ public class Principal {
 		} while (opcion != 3);
 
 		scanner.close();
-
 	}
 }

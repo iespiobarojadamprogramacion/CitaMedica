@@ -53,5 +53,4 @@ public class CitaMedica {
 		return "CitaMedica [medicos=" + medicos + ", pacientes=" + pacientes + ", fecha=" + fecha + ", hora=" + hora
 				+ ", tipoCita=" + tipoCita + "]";
 	}
-
 }

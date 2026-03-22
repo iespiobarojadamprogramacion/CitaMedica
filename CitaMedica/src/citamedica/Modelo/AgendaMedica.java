@@ -34,5 +34,4 @@ public class AgendaMedica {
 			System.out.println(medic.toString());
 		}
 	}
-
 }

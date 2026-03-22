@@ -35,6 +35,4 @@ public class Medicos {
 		return "Medicos [nombreCompleto=" + nombreCompleto + ", numeroColegial=" + numeroColegial
 				+ ", especialidadMedica=" + especialidadMedica + "]";
 	}
-	
-	
 }

@@ -14,6 +14,7 @@ public class AgendaMedica {
 		System.out.println("Paciente registrado exitosamente.");
 	}
 
+	
 	// Mostrar todos los pacientes
 	public static void todosLosPacientes() {
 		for (Pacientes p : listaPacientes) {

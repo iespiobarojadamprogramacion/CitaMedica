@@ -1,240 +1,267 @@
 package citamedica.Modelo;
 
+import java.util.ArrayList;
 import java.util.Scanner;
-
 
 public class Principal {
 
-	public static void main(String[] args) {
-		Scanner scanner = new Scanner(System.in);
-		int opcion;
-	
-		do {
-			System.out.println("\n========== AGENDA MÉDICA ==========");
-			System.out.println("1. Área Pacientes");
-			System.out.println("2. Área Médicos");
-			System.out.println("3. Área Citas");
-			System.out.println("4. Salir");
-			System.out.print("Seleccione una opción: ");
-			opcion = scanner.nextInt();
-			scanner.nextLine();
+    public static void main(String[] args) {
 
-			switch (opcion) {
+        Scanner scanner = new Scanner(System.in);
+        AgendaMedica agenda = new AgendaMedica();
 
-			case 1:
-				int opPaciente;
-				do {
-					System.out.println("\n--- Área Pacientes ---");
-					System.out.println("1. Registrar nuevo paciente");
-					System.out.println("2. Consultar todos los pacientes");
-					System.out.println("3. Volver al menú principal");
-					System.out.print("Seleccione una opción: ");
-					opPaciente = scanner.nextInt();
-					scanner.nextLine();
+        int opcion;
 
-					switch (opPaciente) {
-					case 1:
-						System.out.print("DNI: ");
-						String dni = scanner.nextLine();
+        do {
+            System.out.println("\n========== AGENDA MÉDICA ==========");
+            System.out.println("1. Área Pacientes");
+            System.out.println("2. Área Médicos");
+            System.out.println("3. Área Citas");
+            System.out.println("4. Salir");
+            System.out.print("Seleccione una opción: ");
+            opcion = scanner.nextInt();
+            scanner.nextLine();
 
-						System.out.print("Nombre completo: ");
-						String nombreCompleto = scanner.nextLine();
+            switch (opcion) {
 
-						System.out.print("Edad: ");
-						int edad = scanner.nextInt();
-						scanner.nextLine();
+                // ================= PACIENTES =================
+                case 1:
 
-						System.out.print("Sexo: ");
-						String sexo = scanner.nextLine();
+                    int opPaciente;
+                    do {
+                        System.out.println("\n--- Área Pacientes ---");
+                        System.out.println("1. Registrar nuevo paciente");
+                        System.out.println("2. Consultar todos los pacientes");
+                        System.out.println("3. Volver");
+                        System.out.print("Opción: ");
+                        opPaciente = scanner.nextInt();
+                        scanner.nextLine();
 
-						System.out.print("Teléfono: ");
-						int telefono = scanner.nextInt();
-						scanner.nextLine();
+                        switch (opPaciente) {
 
-						Pacientes paciente = new Pacientes(dni, nombreCompleto, edad, sexo, telefono);
-						AgendaMedica.registrarPaciente(paciente);
-						break;
+                            case 1:
+                                System.out.print("DNI: ");
+                                String dni = scanner.nextLine();
 
-					case 2:
-						System.out.println("\n--- Lista de Pacientes ---");
-						AgendaMedica.todosLosPacientes();
-						break;
+                                System.out.print("Nombre completo: ");
+                                String nombre = scanner.nextLine();
 
-					case 3:
-						System.out.println("Volviendo al menú principal...");
-						break;
+                                System.out.print("Edad: ");
+                                int edad = scanner.nextInt();
+                                scanner.nextLine();
 
-					default:
-						System.out.println("Opción no válida.");
-					}
+                                System.out.print("Sexo: ");
+                                String sexo = scanner.nextLine();
 
-				} while (opPaciente != 3);
-				break;
+                                System.out.print("Teléfono: ");
+                                int telefono = scanner.nextInt();
+                                scanner.nextLine();
 
-			case 2:
-				int opMedico;
-				do {
-					System.out.println("\n--- Área Médicos ---");
-					System.out.println("1. Registrar nuevo médico");
-					System.out.println("2. Consultar todos los médicos");
-					System.out.println("3. Volver al menú principal");
-					System.out.print("Seleccione una opción: ");
-					opMedico = scanner.nextInt();
-					scanner.nextLine();
+                                System.out.println("Especialidad del paciente:");
+                                EspecialidadMedica[] especialidades = EspecialidadMedica.values();
 
-					switch (opMedico) {
-					case 1:
-						System.out.print("Nombre completo: ");
-						String nombreMedico = scanner.nextLine();
+                                for (int i = 0; i < especialidades.length; i++) {
+                                    System.out.println((i + 1) + ". " + especialidades[i]);
+                                }
 
-						System.out.print("Número colegial: ");
-						String numeroColegial = scanner.nextLine();
+                                int opEsp = scanner.nextInt() - 1;
+                                scanner.nextLine();
 
-						System.out.println("Especialidad médica:");
-						EspecialidadMedica[] especialidades = EspecialidadMedica.values();
-						for (int i = 0; i < especialidades.length; i++) {
-							System.out.println((i + 1) + ". " + especialidades[i]);
-						}
-						System.out.print("Seleccione una opción: ");
-						int opEspecialidad = scanner.nextInt();
-						scanner.nextLine();
-						EspecialidadMedica especialidad = especialidades[opEspecialidad - 1];
+                                EspecialidadMedica espPaciente = especialidades[opEsp];
 
-						Medicos medico = new Medicos(nombreMedico, numeroColegial, especialidad);
-						AgendaMedica.registrarMedicos(medico);
-						break;
+                                Pacientes paciente = new Pacientes(dni, nombre, edad, sexo, telefono, espPaciente);
 
-					case 2:
-						System.out.println("\n--- Lista de Médicos ---");
-						AgendaMedica.todosLosMedicos();
-						break;
+                                agenda.registrarPaciente(paciente);
+                                System.out.println("Paciente registrado.");
+                                break;
 
-					case 3:
-						System.out.println("Volviendo al menú principal...");
-						break;
+                            case 2:
+                                System.out.println("\n--- LISTA PACIENTES ---");
+                                for (Pacientes p : agenda.getPacientes()) {
+                                    System.out.println(p);
+                                }
+                                break;
+                        }
 
-					default:
-						System.out.println("Opción no válida.");
-					}
+                    } while (opPaciente != 3);
 
-				} while (opMedico != 3);
-				break;
+                    break;
 
-			case 3:
-			    int opCita;
-			    do {
-			        System.out.println("\n--- Área Citas ---");
-			        System.out.println("1. Crear nueva cita");
-			        System.out.println("2. Ver todas las citas");
-			        System.out.println("3. Volver al menú principal");
-			        System.out.print("Seleccione una opción: ");
-			        opCita = scanner.nextInt();
-			        scanner.nextLine();
+                // ================= MÉDICOS =================
+                case 2:
 
-			        switch (opCita) {
+                    int opMedico;
+                    do {
+                        System.out.println("\n--- Área Médicos ---");
+                        System.out.println("1. Registrar médico");
+                        System.out.println("2. Ver médicos");
+                        System.out.println("3. Volver");
+                        System.out.print("Opción: ");
+                        opMedico = scanner.nextInt();
+                        scanner.nextLine();
 
-			        case 1:
-			            if (AgendaMedica.listaMedicos.isEmpty() || AgendaMedica.listaPacientes.isEmpty()) {
-			                System.out.println("Debe haber al menos un médico y un paciente registrados.");
-			                break;
-			            }
+                        switch (opMedico) {
 
-			            // Seleccionar paciente
-			            System.out.println("\nSeleccione paciente:");
-			            for (int i = 0; i < AgendaMedica.listaPacientes.size(); i++) {
-			                System.out.println((i + 1) + ". " + AgendaMedica.listaPacientes.get(i));
-			            }
-			            int indexPaciente = scanner.nextInt() - 1;
-			            scanner.nextLine();
-			            Pacientes paciente = AgendaMedica.listaPacientes.get(indexPaciente);
+                            case 1:
+                                System.out.print("Nombre: ");
+                                String nombreMedico = scanner.nextLine();
 
-			            // Seleccionar médico
-			            System.out.println("\nSeleccione médico:");
-			            for (int i = 0; i < AgendaMedica.listaMedicos.size(); i++) {
-			                System.out.println((i + 1) + ". " + AgendaMedica.listaMedicos.get(i));
-			            }
-			            int indexMedico = scanner.nextInt() - 1;
-			            scanner.nextLine();
-			            Medicos medico = AgendaMedica.listaMedicos.get(indexMedico);
+                                System.out.print("Número colegial: ");
+                                String num = scanner.nextLine();
 
-			            // Datos comunes
-			            System.out.print("Fecha: ");
-			            String fecha = scanner.nextLine();
+                                System.out.println("Especialidad:");
+                                EspecialidadMedica[] esp = EspecialidadMedica.values();
 
-			            System.out.print("Hora: ");
-			            String hora = scanner.nextLine();
+                                for (int i = 0; i < esp.length; i++) {
+                                    System.out.println((i + 1) + ". " + esp[i]);
+                                }
 
-			            // Tipo de cita
-			            System.out.println("Tipo de cita:");
-			            TipoCita[] tipos = TipoCita.values();
-			            for (int i = 0; i < tipos.length; i++) {
-			                System.out.println((i + 1) + ". " + tipos[i]);
-			            }
-			            int tipoSeleccionado = scanner.nextInt() - 1;
-			            scanner.nextLine();
+                                int op = scanner.nextInt() - 1;
+                                scanner.nextLine();
 
-			            TipoCita tipo = tipos[tipoSeleccionado];
+                                Medicos medico = new Medicos(nombreMedico, num, esp[op]);
 
-			            CitaMedica cita = null;
+                                agenda.registrarMedico(medico);
+                                System.out.println("Médico registrado.");
+                                break;
 
-			            switch (tipo) {
+                            case 2:
+                                System.out.println("\n--- LISTA MÉDICOS ---");
+                                for (Medicos m : agenda.getMedicos()) {
+                                    System.out.println(m);
+                                }
+                                break;
+                        }
 
-			            case CONSULTA_MEDICA:
-			                cita = new CitaMedica(medico, paciente, fecha, hora, tipo);
-			                break;
+                    } while (opMedico != 3);
 
-			            case CITA_URGENTE:
-			                System.out.print("Nivel de urgencia (1-5): ");
-			                // Con mas alto sea el numero, mas urgente es
-			                int nivel = scanner.nextInt();
-			                scanner.nextLine();
-			                cita = new CitaUrgente(medico, paciente, fecha, hora, tipo, nivel);
-			                break;
+                    break;
 
-			            case REVISION_MEDICA:
-			                System.out.print("Duración (minutos): ");
-			                int duracion = scanner.nextInt();
-			                scanner.nextLine();
+                // ================= CITAS =================
+                case 3:
 
-			                System.out.println("Tipo de cita anterior:");
-			                for (int i = 0; i < tipos.length; i++) {
-			                    System.out.println((i + 1) + ". " + tipos[i]);
-			                }
-			                int anterior = scanner.nextInt() - 1;
-			                scanner.nextLine();
+                    int opCita;
+                    do {
+                        System.out.println("\n--- Área Citas ---");
+                        System.out.println("1. Crear cita");
+                        System.out.println("2. Ver citas");
+                        System.out.println("3. Volver");
+                        System.out.print("Opción: ");
+                        opCita = scanner.nextInt();
+                        scanner.nextLine();
 
-			                cita = new RevisionMedica(medico, paciente, fecha, hora, tipo, duracion, tipos[anterior]);
-			                break;
-			            }
+                        switch (opCita) {
 
-			            AgendaMedica.registrarCita(cita);
-			            break;
+                            case 1:
 
-			        case 2:
-			            System.out.println("\n--- Lista de Citas ---");
-			            AgendaMedica.todasLasCitas();
-			            break;
+                                if (agenda.getPacientes().isEmpty() || agenda.getMedicos().isEmpty()) {
+                                    System.out.println("Debe haber pacientes y médicos registrados.");
+                                    break;
+                                }
 
-			        case 3:
-			            System.out.println("Volviendo al menú principal...");
-			            break;
+                                // PACIENTE
+                                System.out.println("\nSeleccione paciente:");
+                                for (int i = 0; i < agenda.getPacientes().size(); i++) {
+                                    System.out.println((i + 1) + ". " + agenda.getPacientes().get(i));
+                                }
 
-			        default:
-			            System.out.println("Opción no válida.");
-			        }
+                                int iPac = scanner.nextInt() - 1;
+                                scanner.nextLine();
+                                Pacientes pacienteSel = agenda.getPacientes().get(iPac);
 
-			    } while (opCita != 3);
-			    break;
-			case 4:
-			    System.out.println("Saliendo del sistema. ¡Hasta luego!");
-			    break;
-				
-			default:
-				System.out.println("Opción no válida. Intente de nuevo.");
-			}
+                                // MÉDICOS FILTRADOS
+                                ArrayList<Medicos> disponibles = new ArrayList<>();
 
-		} while (opcion != 4);
+                                for (Medicos m : agenda.getMedicos()) {
+                                    if (m.getEspecialidadMedica() == pacienteSel.getEspecialidadMedica()) {
+                                        disponibles.add(m);
+                                    }
+                                }
 
-		scanner.close();
-	}
+                                if (disponibles.isEmpty()) {
+                                    System.out.println("No hay médicos para esta especialidad.");
+                                    break;
+                                }
+
+                                System.out.println("\nMédicos disponibles:");
+                                for (int i = 0; i < disponibles.size(); i++) {
+                                    System.out.println((i + 1) + ". " + disponibles.get(i));
+                                }
+
+                                int iMed = scanner.nextInt() - 1;
+                                scanner.nextLine();
+                                Medicos medicoSel = disponibles.get(iMed);
+
+                                // DATOS CITA
+                                System.out.print("Fecha: ");
+                                String fecha = scanner.nextLine();
+
+                                System.out.print("Hora: ");
+                                String hora = scanner.nextLine();
+
+                                System.out.println("Tipo de cita:");
+                                TipoCita[] tipos = TipoCita.values();
+
+                                for (int i = 0; i < tipos.length; i++) {
+                                    System.out.println((i + 1) + ". " + tipos[i]);
+                                }
+
+                                int t = scanner.nextInt() - 1;
+                                scanner.nextLine();
+
+                                TipoCita tipo = tipos[t];
+
+                                CitaMedica cita = null;
+
+                                switch (tipo) {
+
+                                    case CONSULTA_MEDICA:
+                                        cita = new ConsultaMedica(medicoSel, pacienteSel, fecha, hora, tipo, 0);
+                                        break;
+
+                                    case CITA_URGENTE:
+                                        System.out.print("Nivel urgencia (1-5): ");
+                                        int nivel = scanner.nextInt();
+                                        scanner.nextLine();
+
+                                        cita = new CitaUrgente(medicoSel, pacienteSel, fecha, hora, tipo, nivel);
+                                        break;
+
+                                    case REVISION_MEDICA:
+                                        System.out.print("Duración: ");
+                                        int dur = scanner.nextInt();
+                                        scanner.nextLine();
+
+                                        cita = new RevisionMedica(medicoSel, pacienteSel, fecha, hora, tipo, dur, tipo);
+                                        break;
+                                }
+
+                                agenda.registrarCita(cita);
+                                System.out.println("Cita creada.");
+                                break;
+
+                            case 2:
+                                System.out.println("\n--- LISTA CITAS ---");
+                                for (CitaMedica c : agenda.getCitas()) {
+                                    System.out.println(c);
+                                }
+                                break;
+                        }
+
+                    } while (opCita != 3);
+
+                    break;
+
+                case 4:
+                    System.out.println("Saliendo...");
+                    break;
+
+                default:
+                    System.out.println("Opción inválida.");
+            }
+
+        } while (opcion != 4);
+
+        scanner.close();
+    }
 }

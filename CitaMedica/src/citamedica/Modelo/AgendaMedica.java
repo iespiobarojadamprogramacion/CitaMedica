@@ -4,49 +4,43 @@ import java.util.ArrayList;
 
 public class AgendaMedica {
 
-	static ArrayList<Medicos> listaMedicos = new ArrayList<>();
-	static ArrayList<Pacientes> listaPacientes = new ArrayList<>();
-	static ArrayList<CitaMedica> listaCitas = new ArrayList<>();
-	
-	// ================================Citas============================
-		// Registrar Citas
-	public static void registrarCita(CitaMedica cita) {
-	    listaCitas.add(cita);
-	    System.out.println("Cita registrada correctamente.");
-	}
+    private ArrayList<Medicos> listaMedicos;
+    private ArrayList<Pacientes> listaPacientes;
+    private ArrayList<CitaMedica> listaCitas;
 
-	public static void todasLasCitas() {
-	    for (CitaMedica c : listaCitas) {
-	        System.out.println(c.toString());
-	    }
-	}
+    public AgendaMedica() {
+        listaMedicos = new ArrayList<>();
+        listaPacientes = new ArrayList<>();
+        listaCitas = new ArrayList<>();
+    }
 
-	// ================================Pacientes============================
-	// Registrar Pacientes
-	public static void registrarPaciente(Pacientes paciente) {
-		listaPacientes.add(paciente);
-		System.out.println("Paciente registrado exitosamente.");
-	}
+    // ================= PACIENTES =================
 
-	// Mostrar todos los pacientes
-	public static void todosLosPacientes() {
-		for (Pacientes p : listaPacientes) {
-			System.out.println(p.toString());
-		}
-	}
+    public void registrarPaciente(Pacientes paciente) {
+        listaPacientes.add(paciente);
+    }
 
-	// ================================Medicos============================
-	// Registrar Medicos
-	public static void registrarMedicos(Medicos medic) {
-		listaMedicos.add(medic);
-		System.out.println("Medico registrado exitosamente.");
-	}
+    public ArrayList<Pacientes> getPacientes() {
+        return listaPacientes;
+    }
 
-	// Mostrar todos los Medicos
-	public static void todosLosMedicos() {
-		for (Medicos medic : listaMedicos) {
-			System.out.println(medic.toString());
-		}
-	}
+    // ================= MÉDICOS =================
+
+    public void registrarMedico(Medicos medico) {
+        listaMedicos.add(medico);
+    }
+
+    public ArrayList<Medicos> getMedicos() {
+        return listaMedicos;
+    }
+
+    // ================= CITAS =================
+
+    public void registrarCita(CitaMedica cita) {
+        listaCitas.add(cita);
+    }
+
+    public ArrayList<CitaMedica> getCitas() {
+        return listaCitas;
+    }
 }
-

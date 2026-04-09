@@ -6,6 +6,20 @@ public class AgendaMedica {
 
 	static ArrayList<Medicos> listaMedicos = new ArrayList<>();
 	static ArrayList<Pacientes> listaPacientes = new ArrayList<>();
+	static ArrayList<CitaMedica> listaCitas = new ArrayList<>();
+	
+	// ================================Citas============================
+		// Registrar Citas
+	public static void registrarCita(CitaMedica cita) {
+	    listaCitas.add(cita);
+	    System.out.println("Cita registrada correctamente.");
+	}
+
+	public static void todasLasCitas() {
+	    for (CitaMedica c : listaCitas) {
+	        System.out.println(c.toString());
+	    }
+	}
 
 	// ================================Pacientes============================
 	// Registrar Pacientes
@@ -14,7 +28,6 @@ public class AgendaMedica {
 		System.out.println("Paciente registrado exitosamente.");
 	}
 
-	
 	// Mostrar todos los pacientes
 	public static void todosLosPacientes() {
 		for (Pacientes p : listaPacientes) {
@@ -36,3 +49,4 @@ public class AgendaMedica {
 		}
 	}
 }
+

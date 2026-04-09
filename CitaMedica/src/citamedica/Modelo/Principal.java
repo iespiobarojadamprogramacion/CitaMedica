@@ -9,6 +9,7 @@ public class Principal {
 		Scanner scanner = new Scanner(System.in);
 		int opcion;
 
+		
 		do {
 			System.out.println("\n========== AGENDA MÉDICA ==========");
 			System.out.println("1. Área Pacientes");
